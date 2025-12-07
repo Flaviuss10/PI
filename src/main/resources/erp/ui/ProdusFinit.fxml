@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="erp.ui.FinishedPController">
+
+    <!-- Tabelul central -->
+    <center>
+        <VBox spacing="10">
+            <padding>
+                <Insets bottom="20" left="20" right="20" top="20" />
+            </padding>
+
+            <!-- Căutare și buton -->
+            <HBox spacing="10">
+                <TextField fx:id="txtSearch" promptText="🔍 Caută produs..." HBox.hgrow="ALWAYS" />
+                <Button onAction="#handleReload" text="Reîncarcă" />
+            </HBox>
+
+            <!-- Tabel produse -->
+            <TableView fx:id="tableProduse" prefHeight="500">
+                <columns>
+                    <TableColumn fx:id="colCod" prefWidth="120" text="Cod Produs" />
+                    <TableColumn fx:id="colTip" prefWidth="120" text="Tip" />
+                    <TableColumn fx:id="colAroma" prefWidth="100" text="Aromă" />
+                    <TableColumn fx:id="colGramaj" prefWidth="100" text="Gramaj" />
+                    <TableColumn fx:id="colUnitate" prefWidth="100" text="Unitate" />
+                    <TableColumn fx:id="colCantitate" prefWidth="100" text="Cantitate" /> <!-- ✅ ADĂUGAT -->
+                </columns>
+            </TableView>
+
+            <!-- Butoane control -->
+            <HBox spacing="10">
+                <Region HBox.hgrow="ALWAYS" />
+                <Button onAction="#goBack" text="← Înapoi" />
+            </HBox>
+        </VBox>
+    </center>
+
+    <!-- Panou lateral cu filtre -->
+    <right>
+        <VBox spacing="15" style="-fx-background-color: #f5f5f5; -fx-border-color: #cccccc;">
+            <padding>
+                <Insets bottom="20" left="20" right="20" top="20" />
+            </padding>
+
+            <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="⚙️ Filtrare Produse" />
+
+            <Label text="Tip Produs:" />
+            <ChoiceBox fx:id="choiceTipProdus" />
+
+            <Label text="Aromă:" />
+            <ChoiceBox fx:id="choiceAroma" />
+
+            <Label text="Gramaj:" />
+            <ChoiceBox fx:id="choiceGramaj" />
+
+            <Button maxWidth="Infinity" onAction="#handleFiltrare" text="Aplică filtre" />
+            <Button maxWidth="Infinity" onAction="#handleResetFiltre" text="Resetează" />
+        </VBox>
+    </right>
+
+</BorderPane>

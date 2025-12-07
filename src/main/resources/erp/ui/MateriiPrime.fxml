@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="erp.ui.RawMController"
+      spacing="20"
+      style="-fx-padding: 30; -fx-background-color: #f4f6f8;">
+
+    <!-- Titlu -->
+    <Label text="📦 Stocuri - Materii Prime"
+           style="-fx-font-size: 24px; -fx-font-weight: bold;" />
+
+    <!-- Tabel Materii Prime -->
+    <TableView fx:id="tableMaterii" prefHeight="400">
+        <columns>
+            <TableColumn fx:id="colNume" text="Materie Primă" prefWidth="250"/>
+            <TableColumn fx:id="colCantitate" text="Cantitate" prefWidth="150"/>
+            <TableColumn fx:id="colUnitate" text="Unitate" prefWidth="150"/>
+        </columns>
+    </TableView>
+
+    <!-- Form pentru Adăugare/Actualizare -->
+    <HBox spacing="10">
+        <TextField fx:id="txtNume" promptText="Nume materie primă" />
+        <TextField fx:id="txtCantitate" promptText="Cantitate" />
+        <TextField fx:id="txtUnitate" promptText="Unitate (kg, litri etc.)" />
+    </HBox>
+
+    <!-- Butoane control -->
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Button text="🔄 Reîncarcă" onAction="#reloadTable"
+                style="-fx-background-color: #90caf9; -fx-text-fill: black;" />
+        <Button text="➕ Adaugă" onAction="#handleAdauga"
+                style="-fx-background-color: #66bb6a; -fx-text-fill: white;" />
+        <Button text="✏️ Actualizează" onAction="#handleActualizeaza"
+                style="-fx-background-color: #ffa726; -fx-text-fill: white;" />
+        <Button text="🗑️ Șterge" onAction="#handleSterge"
+                style="-fx-background-color: #ef5350; -fx-text-fill: white;" />
+        <Region fx:id="spacer" HBox.hgrow="ALWAYS"/>
+        <Button text="← Înapoi" onAction="#goBack"
+                style="-fx-background-color: #eeeeee; -fx-border-color: #cccccc;" />
+    </HBox>
+
+</VBox>

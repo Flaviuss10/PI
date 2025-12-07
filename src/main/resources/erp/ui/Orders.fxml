@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="erp.ui.OrdersController"
+      spacing="20" style="-fx-padding: 20;">
+
+    <Label text="Gestioneaza Comenzi" style="-fx-font-size: 22;" />
+
+    <Button text="Creeaza Comanda Noua" />
+    <TableView>
+        <columns>
+            <TableColumn text="ID" />
+            <TableColumn text="Client" />
+            <TableColumn text="Total" />
+            <TableColumn text="Data" />
+        </columns>
+    </TableView>
+
+</VBox>
