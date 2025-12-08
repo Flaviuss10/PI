@@ -42,6 +42,7 @@
             <!-- Butoane control -->
             <HBox spacing="10">
                 <Region HBox.hgrow="ALWAYS" />
+            <Button fx:id="btnHome" onAction="#goHome" style="-fx-background-color: #eeeeee; -fx-border-color: #cccccc;" text="🏠 Home" />
                 <Button onAction="#goBack" text="← Înapoi" />
             </HBox>
         </VBox>

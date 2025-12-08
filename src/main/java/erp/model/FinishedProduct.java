@@ -29,7 +29,7 @@ public class FinishedProduct{
 
     @Override
     public String toString() {
-        return tipProdus + ", " + aroma + ", " + gramaj;
+        return codProdus + " - " +  tipProdus + " - " + aroma + " - " + gramaj + " - " + unit;
     }
 
     @Override

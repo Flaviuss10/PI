@@ -31,6 +31,10 @@ public class FinishedPController {
 
 
 
+    @FXML
+    private void goHome(){
+        MainController.navigateTo("MainView.fxml");
+    }
     // incarca datele in tabel
     private void reloadTabel(){
 

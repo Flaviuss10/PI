@@ -22,6 +22,10 @@ public class RawMController {
     @FXML private TextField txtUnitate;
 
     @FXML
+    private void goHome(){
+        MainController.navigateTo("MainView.fxml");
+    }
+    @FXML
     public void initialize() {
         colNume.setCellValueFactory(new PropertyValueFactory<>("name"));
         colCantitate.setCellValueFactory(new PropertyValueFactory<>("quantity"));

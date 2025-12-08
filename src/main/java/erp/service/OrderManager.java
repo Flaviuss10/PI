@@ -149,7 +149,31 @@ public class OrderManager {
         comenzi.stream().forEach(System.out::println);
    }
 
-       public List<Order> getComenzi(){
+   public void deleteOrder(Order o){
+        comenzi.remove(o);
+        updateDatabaseAfterDelete(o);
+   }
+
+   void updateDatabaseAfterDelete(Order o){
+       try{
+           Connection conn = DatabaseManager.getConnection();
+           PreparedStatement ps2 = conn.prepareStatement("DELETE FROM order_lines WHERE order_id = ?");
+           ps2.setInt(1, o.getId());
+           ps2.executeUpdate();
+           PreparedStatement ps = conn.prepareStatement("DELETE FROM orders WHERE id = ?" );
+           ps.setInt(1, o.getId());
+           ps.executeUpdate();
+       }catch(SQLException e){
+           e.printStackTrace();
+       }
+   }
+   public List<Order> getComenzi(){
             return comenzi;
        }
+
+
+
+
+
+
 }

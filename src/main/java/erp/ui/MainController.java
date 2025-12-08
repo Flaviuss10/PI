@@ -7,6 +7,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
+
+import java.io.IOException;
 import java.util.*;
 public class MainController {
 
@@ -28,6 +30,25 @@ public class MainController {
 
     @FXML
     private BorderPane mainPane;
+
+    @FXML
+    private BorderPane mainBorderPane;
+
+    @FXML
+    private void handleBack() throws IOException {
+        Parent dashboardContent = FXMLLoader.load(getClass().getResource("DashboardContent.fxml"));
+        mainBorderPane.setCenter(dashboardContent);
+    }
+
+
+    @FXML
+    private void openDashboard() {
+        navigateTo("Dashboard.fxml");
+        showMenu();
+    }
+
+
+
 
     public void hideMenu() {
         mainPane.setLeft(null);
@@ -71,7 +92,7 @@ public class MainController {
     //incarca o pagina noua si adauga la stack
     private void loadView(String fileName, boolean addToHistory) {
         try {
-            Parent view = FXMLLoader.load(getClass().getResource("/erp/ui/" + fileName));
+            Parent view = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/erp/ui/" + fileName)));
             if (addToHistory)
                 pageHistory.push(fileName);
             contentArea.getChildren().setAll(view);
@@ -106,11 +127,6 @@ public class MainController {
         showMenu();
     }
 
-    @FXML
-    private void openDashboard() {
-        navigateTo("Dashboard.fxml");
-        showMenu();
-    }
 
     @FXML
     private void openStocks() {
@@ -121,7 +137,7 @@ public class MainController {
     @FXML
     private void openOrders() {
         navigateTo("Orders.fxml");
-        showMenu();
+        //showMenu();
     }
 
     @FXML

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<SplitPane dividerPositions="0.3" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #F9FAFB;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="erp.ui.RecipesController">
+
+    <items>
+        <VBox spacing="15" style="-fx-padding: 20; -fx-background-color: white;">
+            <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2E3B4E;" text="📖 Produse Finite" />
+
+            <TextField fx:id="txtSearchProduct" promptText="🔍 Caută produs..." style="-fx-padding: 8;" />
+
+            <ListView fx:id="listProducts" VBox.vgrow="ALWAYS" style="-fx-background-color: #f4f6f8; -fx-border-color: #e0e0e0;" />
+
+            <Label text="Selectează un produs pentru a-i edita rețeta." wrapText="true" style="-fx-text-fill: #777; -fx-font-style: italic; -fx-font-size: 12px;" />
+
+            <Button onAction="#goBack" text="← Înapoi la Dashboard" maxWidth="Infinity" style="-fx-background-color: #eeeeee; -fx-border-color: #cccccc;"/>
+        </VBox>
+
+        <VBox spacing="20" style="-fx-padding: 30; -fx-background-color: #F9FAFB;">
+
+            <HBox alignment="CENTER_LEFT" spacing="15">
+                <VBox>
+                    <Label text="Editor Rețetă" style="-fx-font-size: 14px; -fx-text-fill: #888;" />
+                    <Label fx:id="lblSelectedProduct" text="Niciun produs selectat" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2E3B4E;" />
+                </VBox>
+                <Region HBox.hgrow="ALWAYS" />
+                <Button fx:id="btnSave" text="💾 Salvează Rețeta" onAction="#handleSaveRecipe" style="-fx-background-color: #2E3B4E; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 8 20;" disable="true"/>
+            </HBox>
+
+            <TableView fx:id="tableRecipeLines" VBox.vgrow="ALWAYS" style="-fx-effect: dropshadow(gaussian, #00000011, 10, 0, 0, 2);">
+                <columns>
+                    <TableColumn fx:id="colIngredient" text="Materie Primă (Ingredient)" prefWidth="300" />
+
+                    <TableColumn fx:id="colCantitate" text="Cantitate" prefWidth="150" />
+
+                    <TableColumn fx:id="colUnitate" text="Unitate" prefWidth="100" />
+
+                    <TableColumn fx:id="colActiuni" text="Acțiuni" prefWidth="100" />
+                </columns>
+                <placeholder>
+                    <Label text="Selectează un produs din stânga pentru a vedea ingredientele." />
+                </placeholder>
+            </TableView>
+
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Button fx:id="btnAddIngredient" text="➕ Adaugă Ingredient" onAction="#handleAddIngredient" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" disable="true"/>
+                <Label text="* Dublu-click pe celule pentru a edita cantitatea sau ingredientul." style="-fx-text-fill: #999; -fx-font-size: 11px;" />
+            </HBox>
+
+        </VBox>
+    </items>
+</SplitPane>

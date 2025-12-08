@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.text.*?>
 
-<VBox xmlns="http://javafx.com/javafx"
-      xmlns:fx="http://javafx.com/fxml"
-      fx:controller="erp.ui.RawMController"
-      spacing="20"
-      style="-fx-padding: 30; -fx-background-color: #f4f6f8;">
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="20" style="-fx-padding: 30; -fx-background-color: #f4f6f8;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="erp.ui.RawMController">
 
     <!-- Titlu -->
-    <Label text="📦 Stocuri - Materii Prime"
-           style="-fx-font-size: 24px; -fx-font-weight: bold;" />
+    <Label style="-fx-font-size: 24px; -fx-font-weight: bold;" text="📦 Stocuri - Materii Prime" />
 
     <!-- Tabel Materii Prime -->
     <TableView fx:id="tableMaterii" prefHeight="400">
         <columns>
-            <TableColumn fx:id="colNume" text="Materie Primă" prefWidth="250"/>
-            <TableColumn fx:id="colCantitate" text="Cantitate" prefWidth="150"/>
-            <TableColumn fx:id="colUnitate" text="Unitate" prefWidth="150"/>
+            <TableColumn fx:id="colNume" prefWidth="250" text="Materie Primă" />
+            <TableColumn fx:id="colCantitate" prefWidth="150" text="Cantitate" />
+            <TableColumn fx:id="colUnitate" prefWidth="150" text="Unitate" />
         </columns>
     </TableView>
 
@@ -31,18 +31,14 @@
     </HBox>
 
     <!-- Butoane control -->
-    <HBox spacing="10" alignment="CENTER_LEFT">
-        <Button text="🔄 Reîncarcă" onAction="#reloadTable"
-                style="-fx-background-color: #90caf9; -fx-text-fill: black;" />
-        <Button text="➕ Adaugă" onAction="#handleAdauga"
-                style="-fx-background-color: #66bb6a; -fx-text-fill: white;" />
-        <Button text="✏️ Actualizează" onAction="#handleActualizeaza"
-                style="-fx-background-color: #ffa726; -fx-text-fill: white;" />
-        <Button text="🗑️ Șterge" onAction="#handleSterge"
-                style="-fx-background-color: #ef5350; -fx-text-fill: white;" />
-        <Region fx:id="spacer" HBox.hgrow="ALWAYS"/>
-        <Button text="← Înapoi" onAction="#goBack"
-                style="-fx-background-color: #eeeeee; -fx-border-color: #cccccc;" />
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Button onAction="#reloadTable" style="-fx-background-color: #90caf9; -fx-text-fill: black;" text="🔄 Reîncarcă" />
+        <Button onAction="#handleAdauga" style="-fx-background-color: #66bb6a; -fx-text-fill: white;" text="➕ Adaugă" />
+        <Button onAction="#handleActualizeaza" style="-fx-background-color: #ffa726; -fx-text-fill: white;" text="✏️ Actualizează" />
+        <Button onAction="#handleSterge" style="-fx-background-color: #ef5350; -fx-text-fill: white;" text="🗑️ Șterge" />
+        <Region fx:id="spacer" HBox.hgrow="ALWAYS" />
+        <Button fx:id="btnHome" onAction="#goHome" style="-fx-background-color: #eeeeee; -fx-border-color: #cccccc;" text="🏠 Home" />
+      <Button onAction="#goBack" style="-fx-background-color: #eeeeee; -fx-border-color: #cccccc;" text="← Înapoi" />
     </HBox>
 
 </VBox>

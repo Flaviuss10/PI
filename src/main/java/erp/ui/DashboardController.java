@@ -1,5 +1,6 @@
     package erp.ui;
     import erp.model.Order;
+    import erp.service.InventoryManager;
     import erp.service.OrderManager;
     import javafx.beans.property.ReadOnlyStringWrapper;
     import javafx.fxml.FXML;
@@ -48,7 +49,7 @@
             int totalOrders = OrderManager.getInstance().countOrders();
             int pendingOrders = (int) OrderManager.getInstance().countComenziNefinalizate();
             double comenziFinalizate = (double) (totalOrders - pendingOrders) / totalOrders;
-            int criticalStockItems = 5;
+            int criticalStockItems = InventoryManager.getInstance().stocCritic();
 
             labelTotalOrders.setText(String.valueOf(totalOrders));
             labelPendingOrders.setText(String.valueOf(pendingOrders));
@@ -81,5 +82,12 @@
             tableRecentOrders.setItems(comenzi);
 
         }
+
+        @FXML
+        private void handleBack(){
+            MainController.navigateTo("MainView.fxml");
+            MainController.showMenuFromOutside();
+        }
+
     }
 

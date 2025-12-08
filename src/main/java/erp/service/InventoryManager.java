@@ -42,6 +42,18 @@ public class InventoryManager {
 
 
 
+    public int stocCritic(){
+       Map<FinishedProduct, Integer> stoc = instance.getStocProdusFinit().getStoc();
+
+       int cnt = 0;
+
+       for(Map.Entry<FinishedProduct, Integer> i : stoc.entrySet())
+           if(i.getValue() < 10)
+               cnt++;
+
+       return cnt;
+    }
+
     public void adaugaMateriePrima(RawMaterial r, int cant){
         if (r == null) throw new IllegalArgumentException("Materie prima null");
         if (cant <= 0) throw new IllegalArgumentException("Cantitatea trebuie sa fie > 0");
@@ -130,5 +142,6 @@ public class InventoryManager {
     public void loadFromDatabase() {
         stocMateriePrima.loadFromDatabase();
         stocProduse.loadFromDatabase();
+        retetar.loadAllRecipes();
     }
 }
