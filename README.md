@@ -111,7 +111,6 @@ erDiagram
 
 * La o comandă, se verifică stocul cu liniile sale (OrderLine), iar dacă lipsesc produse, sistemul calculează ce materii prime sunt necesare.
 
-## 2. Diagrama Componentelor (High-Level)
 
 ```mermaid
 graph TD
