@@ -116,8 +116,8 @@ erDiagram
 ```mermaid
 graph TD
     subgraph "Presentation Layer"
-        UI[Interfața Grafică JavaFX]
-        FXML[Fișiere .fxml]
+        UI["Interfața Grafică JavaFX"]
+        FXML["Fișiere .fxml"]
     end
 
     subgraph "Controller Layer"
@@ -127,9 +127,9 @@ graph TD
     end
 
     subgraph "Service & Business Logic Layer"
-        IM[InventoryManager (Singleton)]
-        OM[OrderManager (Singleton)]
-        AI[AIService (OpenAI Integration)]
+        IM["InventoryManager (Singleton)"]
+        OM["OrderManager (Singleton)"]
+        AI["AIService (OpenAI Integration)"]
         FPI[FinishedPInventory]
         RMI[RawMaterialInventory]
     end
@@ -137,13 +137,13 @@ graph TD
     subgraph "Model Layer"
         M_FP[FinishedProduct]
         M_RM[RawMaterial]
-        M_OR[Order / OrderLine]
-        M_RC[Recipe / RecipeLine]
+        M_OR["Order / OrderLine"]
+        M_RC["Recipe / RecipeLine"]
     end
 
     subgraph "Persistence Layer"
         DBM[DatabaseManager]
-        MySQL[(MySQL Database)]
+        MySQL[("MySQL Database")]
     end
 
     %% Relatii
