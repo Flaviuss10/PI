@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="20" style="-fx-padding: 30; -fx-background-color: #f4f6f8;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="erp.ui.RawMController">
+
+
+    <Label style="-fx-font-size: 24px; -fx-font-weight: bold;" text="📦 Stocuri - Materii Prime" />
+
+
+    <TableView fx:id="tableMaterii" prefHeight="400">
+        <columns>
+            <TableColumn fx:id="colNume" prefWidth="250" text="Materie Primă" />
+            <TableColumn fx:id="colCantitate" prefWidth="150" text="Cantitate" />
+            <TableColumn fx:id="colUnitate" prefWidth="150" text="Unitate" />
+        </columns>
+    </TableView>
+
+
+    <HBox spacing="10">
+        <TextField fx:id="txtNume" promptText="Nume materie primă" />
+        <TextField fx:id="txtCantitate" promptText="Cantitate" />
+        <TextField fx:id="txtUnitate" promptText="Unitate (kg, litri etc.)" />
+    </HBox>
+
+
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Button onAction="#reloadTable" style="-fx-background-color: #90caf9; -fx-text-fill: black;" text="🔄 Reîncarcă" />
+        <Button onAction="#handleAdauga" style="-fx-background-color: #66bb6a; -fx-text-fill: white;" text="➕ Adaugă" />
+        <Button onAction="#handleActualizeaza" style="-fx-background-color: #ffa726; -fx-text-fill: white;" text="✏️ Actualizează" />
+        <Button onAction="#handleSterge" style="-fx-background-color: #ef5350; sc-fx-text-fill: white;" text="🗑️ Șterge" />
+        <Region fx:id="spacer" HBox.hgrow="ALWAYS" />
+        <Button fx:id="btnHome" onAction="#goHome" style="-fx-background-color: #eeeeee; -fx-border-color: #cccccc;" text="🏠 Home" />
+      <Button onAction="#goBack" style="-fx-background-color: #eeeeee; -fx-border-color: #cccccc;" text="← Înapoi" />
+    </HBox>
+
+</VBox>
