@@ -12,4 +12,6 @@ module ERP {
     opens erp.model to javafx.base;
 
     exports erp.ui;
+    exports erp.model;
+    exports erp.service;
 }

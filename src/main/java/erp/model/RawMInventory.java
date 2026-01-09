@@ -123,10 +123,11 @@ public class RawMInventory {
     /**
      * Metoda penntru actualizarea/salvarea unei materii prime in baza de date
      * @param r materia prima ce trebuie incarcata in baza de date
+     * @throws IllegalStateException UnitTests
      * @throws SQLException
      */
     private void saveToDatabase(RawMaterial r){
-        try{
+        try {
             Connection conn = DatabaseManager.getConnection();
             PreparedStatement ps = conn.prepareStatement("INSERT INTO raw_materials (id, name, unit, quantity) VALUES (?, ?, ?, ?) " +
                     "ON DUPLICATE KEY UPDATE quantity=?");
@@ -136,7 +137,8 @@ public class RawMInventory {
             ps.setDouble(4, stoc.get(r));
             ps.setDouble(5, stoc.get(r));
             ps.executeUpdate();
-
+        }catch(IllegalStateException exception) {
+            System.out.println("Modul de test pt UnitTest. Modificare in memorie");
         }catch(SQLException e){
             e.printStackTrace();
         }
@@ -148,11 +150,13 @@ public class RawMInventory {
      * @throws SQLException
      */
     private void updateDatabaseAfterDelete(RawMaterial r){
-        try{
+        try {
             Connection conn = DatabaseManager.getConnection();
-            PreparedStatement ps = conn.prepareStatement("DELETE FROM raw_materials WHERE id = ?" );
+            PreparedStatement ps = conn.prepareStatement("DELETE FROM raw_materials WHERE id = ?");
             ps.setInt(1, r.getId());
             ps.executeUpdate();
+        }catch (IllegalStateException exc){
+        System.out.println("Modul de test pt Unit Test. Modificare DOAR in Memorie!");
         }catch(SQLException e){
             e.printStackTrace();
         }

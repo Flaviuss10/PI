@@ -73,10 +73,11 @@ public class FinishedPInventory {
      * Metoda care actualizeaza baza de date in cazul unei modificari in legatura cu un produs
      * @param p produsul care a fost modificat
      * @throws SQLException
+     * @throws IllegalStateException pentru Unit Tests
      */
     public void updateDatabase(FinishedProduct p){
 
-        try{
+        try {
             Connection conn = DatabaseManager.getConnection();
             PreparedStatement ps = conn.prepareStatement("UPDATE `erp`.`finished_products`\n" +
                     "        SET\n" +
@@ -98,7 +99,9 @@ public class FinishedPInventory {
             ps.setDouble(7, stoc.get(p));
             ps.setDouble(8, p.getId());
             ps.executeUpdate();
-
+        }catch (IllegalStateException e)
+        {
+            System.out.println("Modul Test pt Unit Test. Modificare doar in memorie!");
         }catch (SQLException e){
             e.printStackTrace();
         }
